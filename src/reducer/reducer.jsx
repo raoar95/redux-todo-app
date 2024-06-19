@@ -1,3 +1,5 @@
+// GETTING LOCAL STORAGE DATA ON INNITIAL STATE
+
 const getTodoLocalStorageData = () => {
 
    let TodoStorageData = localStorage.getItem("myTodoData");
@@ -13,6 +15,10 @@ const getTodoLocalStorageData = () => {
 }
 
 const initialState = getTodoLocalStorageData();
+
+
+
+// TODO REDUCER
 
 const todoReducer = (state = initialState, action) => {
 
