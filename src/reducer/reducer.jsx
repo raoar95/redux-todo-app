@@ -2,7 +2,7 @@
 
 const getTodoLocalStorageData = () => {
 
-   let TodoStorageData = localStorage.getItem("myTodoData");
+let TodoStorageData = localStorage.getItem("myTodoData");
 
    if (!TodoStorageData) {
        return [];
