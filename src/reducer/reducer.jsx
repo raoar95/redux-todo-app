@@ -1,31 +1,51 @@
-// const initialState = [];
+const getTodoLocalStorageData = () => {
 
+   let TodoStorageData = localStorage.getItem("myTodoData");
 
-const todoApp = (state=['Arun'], action) => {
+   if (!TodoStorageData) {
+       return [];
+   }
 
-    console.log(state)
-    console.log(action.payload)
-
-
-    if (action.type="addTask") {
-        
-       state.push(action.payload);
-    //    console.log(state);
-       return state;
-       
-       
-    }
-
-   
-
-    // if (action.type="deleteTask") {
-
-    //   state.slice(action.payload, 0)
-
-    // }
-
-    // else {return state;}
+   else {
+       return JSON.parse(TodoStorageData)
+   }
 
 }
 
-export default todoApp;
+const initialState = getTodoLocalStorageData();
+
+const todoReducer = (state = initialState, action) => {
+
+
+    if (action.type === "addTask") {
+
+      if (action.payload) {
+        
+         return [...state, action.payload];
+
+       }
+
+       return state; 
+       
+    }
+
+
+    if (action.type === "deleteTask") {
+
+      if (action.payload || action.payload === 0) {
+
+        return state.filter((_, index) => index !== action.payload)
+  
+       }
+
+      return state; 
+
+    }
+
+
+    return state;
+
+}
+
+
+export default todoReducer;

@@ -1,9 +1,8 @@
-import todoApp from "./reducer";
-
+import todoReducer from "./reducer";
 import { combineReducers } from "redux"
 
 const rootReducer = combineReducers({
-    todoApp
+    todoApp: todoReducer,
 });
 
 export default rootReducer;
