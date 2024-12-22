@@ -3,22 +3,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { addTask, deleteTask } from "./action/action";
 
 function App() {
-
   const originalState = useSelector((state) => state.todoApp);
 
   const dispatch = useDispatch();
-  
 
+  // SETTING LOCAL STORAGE DATA
 
-  // SETTING LOCAL STORAGE DATA 
-  
   useEffect(() => {
-
-    localStorage.setItem("myTodoData", JSON.stringify(originalState))
-
-  }, [originalState])
-
-
+    localStorage.setItem("myTodoData", JSON.stringify(originalState));
+  }, [originalState]);
 
   // GETTING INPUT DATA
 
@@ -33,8 +26,6 @@ function App() {
     }
   };
 
-
-
   return (
     <>
       <h1>Redux Todo App</h1>
@@ -44,12 +35,12 @@ function App() {
       <button onClick={getInputText}>Add Task</button>
       <br />
       <h3>Tasks List:</h3>
-        {originalState.length === 0 ? (
-          <p>
-            <strong>No Task to Show (Add new task)</strong>
-          </p>
-          ) : (       
-          <ul>
+      {originalState.length === 0 ? (
+        <p>
+          <strong>No Task to Show (Add new task)</strong>
+        </p>
+      ) : (
+        <ul>
           {originalState.map((data, index) => {
             return (
               <li key={index}>
@@ -59,10 +50,9 @@ function App() {
                 </button>
               </li>
             );
-          } 
-          )}
-         </ul>
-        )}
+          })}
+        </ul>
+      )}
     </>
   );
 }
