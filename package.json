@@ -1,6 +1,6 @@
 {
   "homepage": "https://raoar95.github.io/redux-todo-app",
-  "name": "redux-app",
+  "name": "redux-todo-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
